@@ -1,0 +1,48 @@
+# Builds Shams_Medhat_Resume.pdf on every push and publishes it to a
+# release called "resume-latest", so the newest PDF is always one click away:
+#   https://github.com/<you>/<repo>/releases/latest/download/Shams_Medhat_Resume.pdf
+name: Build resume PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.tex"
+      - ".github/workflows/build-resume.yml"
+  workflow_dispatch: # adds a "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write # needed to publish the release
+
+concurrency:
+  group: build-resume
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v7
+
+      - name: Compile LaTeX (latexmk + pdfLaTeX, full TeX Live)
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: Shams_Medhat_Resume.tex
+
+      - name: Upload PDF to this run (Actions tab -> run -> Artifacts)
+        uses: actions/upload-artifact@v7
+        with:
+          path: Shams_Medhat_Resume.pdf
+          archive: false
+          if-no-files-found: error
+
+      - name: Publish PDF to the "resume-latest" release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete resume-latest --yes --cleanup-tag || true
+          gh release create resume-latest Shams_Medhat_Resume.pdf \
+            --target "$GITHUB_SHA" \
+            --title "Latest resume" \
+            --notes "Built automatically from commit ${GITHUB_SHA::7}"

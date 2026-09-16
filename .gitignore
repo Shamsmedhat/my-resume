@@ -1,0 +1,13 @@
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.xdv
+
+# The PDF is built by GitHub Actions (see Releases).
+# Delete this line if you also want to commit the PDF yourself.
+*.pdf

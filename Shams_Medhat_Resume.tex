@@ -1,0 +1,193 @@
+%==========================================================================
+%  Shams Medhat — Resume (LaTeX)
+%  Compiler: pdfLaTeX  (Overleaf default)  — XeLaTeX / LuaLaTeX also work
+%  Layout matches the reference CV: Latin Modern 11pt, 0.3in margins,
+%  bold uppercase section titles with a full-width rule, FontAwesome icons.
+%==========================================================================
+\documentclass[11pt]{article}
+
+%---------------------------- Page & fonts --------------------------------
+\usepackage[a4paper, margin=0.3in]{geometry}  % change a4paper -> letterpaper for US roles
+\usepackage{lmodern}                          % Latin Modern (same font as the reference)
+\usepackage{fontawesome5}                     % icons: \faPhone, \faGithub, ...
+\usepackage{microtype}                        % nicer justification (fewer stretched lines)
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{iftex}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  pdftitle    = {Shams Medhat - Resume},
+  pdfauthor   = {Shams Medhat},
+  pdfpagemode = UseNone
+}
+
+% Make the PDF text machine-readable (ATS parsers, copy/paste)
+\ifPDFTeX
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setcounter{secnumdepth}{0}
+\frenchspacing   % even word spacing after "." and ":"
+
+% Never split tech names across lines (keeps ATS keyword matching intact).
+% Add any new tool names here.
+\hyphenation{AssemblyAI Firecrawl LangChain pgvector Supabase TypeScript NextAuth
+             TanStack Mongoose MongoDB Cloudinary Vercel Railway shadcn Gemini Groq DevMentor}
+
+%---------------------------- Section titles ------------------------------
+% BOLD UPPERCASE title + full-width rule underneath
+\titleformat{\section}{\bfseries}{}{0pt}{\MakeUppercase}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{10.5pt}
+
+%---------------------------- Lists ---------------------------------------
+\setlist[itemize]{label=\textbullet, leftmargin=16.4pt, labelsep=5.5pt,
+                  topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=1.6pt}
+
+%---------------------------- Macros --------------------------------------
+% \entry{Company}{Dates}{Role | Type}
+\newcommand{\entry}[3]{%
+  \par\noindent\textbf{#1}\hfill\textbf{#2}\par\nopagebreak
+  \noindent\textit{#3}\par\nopagebreak}
+
+% \project{Name}{One-line description}{Links (right side)}{Tech stack}
+\newcommand{\project}[4]{%
+  \par\noindent\textbf{#1 \textbar}\ #2\hfill#3\par\nopagebreak
+  \noindent\textit{#4}\par\nopagebreak}
+
+% \iconlink{url}{icon}{label}  ->  icon + bold label, clickable
+\newcommand{\iconlink}[3]{\href{#1}{#2\ \textbf{#3}}}
+
+% space between two projects (as in the reference)
+\newcommand{\projectgap}{\vspace{6.5pt}}
+
+%==========================================================================
+\begin{document}
+
+%---------------------------- Header --------------------------------------
+{\centering
+  {\LARGE\bfseries Shams Medhat}\\[1.6pt]
+  \textbf{Frontend Engineer} \textbar{} React, Next.js, TypeScript \textbar{}
+  Full-Stack (Node, Express, MongoDB) \textbar{} AI-Powered Products\\[1.6pt]
+  \faPhone\ \href{tel:+201111803604}{+20 111 180 3604}\hspace{1em}
+  \faMapMarker\ Giza, Egypt (open to hybrid \& remote)\hspace{1em}
+  \faEnvelope\ \href{mailto:shamsmedhat1@gmail.com}{shamsmedhat1@gmail.com}\\[1.6pt]
+  {\small
+  \faLinkedin\ \href{https://www.linkedin.com/in/shamsmedhat/}{linkedin.com/in/shamsmedhat}\hspace{1em}
+  \faGithub\ \href{https://github.com/Shamsmedhat}{github.com/Shamsmedhat}\hspace{1em}
+  \faGlobe\ \href{https://devmentor-ai-beta.vercel.app/en}{devmentor-ai-beta.vercel.app}}\par}
+
+%---------------------------- Summary -------------------------------------
+\section{Summary}
+Frontend engineer specialising in React, Next.js, and TypeScript, with full-stack delivery
+across Node.js, Express, and MongoDB. Built and shipped
+\href{https://devmentor-ai-beta.vercel.app/en}{\textbf{DevMentor AI}}, an Arabic-first AI
+code-mentoring platform now in private beta with 41 developers signed up, and currently
+mentoring 80+ developers at \textbf{Elevate Tech} with 20--50 code reviews per week. Strong
+communicator with a leadership track record, promoted through 4 roles in 4.5 years before
+moving into engineering.
+
+%---------------------------- Skills --------------------------------------
+\section{Skills}
+{\small
+\begin{itemize}[itemsep=2.1pt]
+  \item \textbf{Frontend:} Next.js (App Router), React.js, TypeScript, React Query / TanStack Query,
+        Redux Toolkit, Tailwind CSS, shadcn/ui, React Hook Form, Zod, NextAuth,
+        next-intl / i18next (i18n, RTL), HTML5, CSS3, Responsive Design
+  \item \textbf{Backend:} Node.js, Express, MongoDB, Mongoose, REST API design, JWT authentication,
+        bcrypt, rate limiting, SQL, Supabase
+  \item \textbf{AI / LLM:} LLM API integration (Vercel AI SDK), RAG (embeddings, pgvector similarity
+        search, retrieval evals), prompt engineering, document and video ingestion pipelines,
+        AI code-review workflows, AI-assisted development (Claude Code, Cursor)
+  \item \textbf{Tools \& Practices:} Git, GitHub, Jira, Agile/Scrum, Vercel, Railway, Cloudinary,
+        Stripe, Data Structures \& Algorithms
+\end{itemize}}
+
+%---------------------------- Experience ----------------------------------
+\section{Experience}
+\entry{Elevate Tech}{Feb 2025 -- Present}{Frontend Mentor $|$ Part-time}
+\begin{itemize}
+  \item Mentor 80+ junior developers across 4 cohorts (4--6 teams each) in React/Next.js,
+        conducting 20--50 code reviews per week, improving code quality, reducing bugs, and
+        boosting application performance.
+  \item Enforce clean-code standards, scalable component architecture, and consistent project
+        structure across multiple applications.
+  \item Lead daily standups, sprint planning, and task estimation in Jira, and unblock teams on
+        routing, authentication, forms, and data fetching so they ship production-ready features.
+\end{itemize}
+
+\entry{The Lane Real Estate}{Jun 2024 -- Dec 2024}{Frontend Developer}
+\begin{itemize}
+  \item Rebuilt SEO infrastructure across 5 key pages (dynamic sitemaps and page-specific
+        metadata), improving crawlability, search visibility, and measurable organic-traffic growth.
+  \item Maintained and enhanced the internal admin panel, fixing UI/UX issues and streamlining
+        daily workflows for real estate agents.
+  \item Owned deployments and shipped iterative, A/B-style improvements to performance and user
+        experience.
+\end{itemize}
+
+\entry{Xceed}{Jan 2020 -- Jun 2024}{CSR $\rightarrow$ Mentor $\rightarrow$ Trainer $\rightarrow$
+       Technical Lead (Soft Skills \& Product)}
+\begin{itemize}
+  \item Promoted through 4 roles in 4.5 years, designing and delivering training programs for
+        150+ agents, raising team QA scores to the top quartile and earning an `A' performance
+        rating.
+\end{itemize}
+
+%---------------------------- Projects ------------------------------------
+\section{Projects}
+\project{DevMentor AI}{AI Code-Mentoring Platform}
+        {\iconlink{https://devmentor-ai-beta.vercel.app/en}{\faGlobe}{Live Demo}}
+        {Next.js 16, React 19, TypeScript, Vercel AI SDK, Supabase (pgvector), LangChain, Tailwind v4}
+\begin{itemize}
+  \item Built and shipped an Arabic-first AI mentor for React/Next.js developers: chat grounded
+        in user-uploaded documentation, automated code review, a bilingual AR/EN interface with
+        RTL, and persistent sessions. 41 developers signed up for the private beta.
+  \item Engineered the full RAG pipeline: multi-format ingestion (web pages via Firecrawl, PDFs,
+        and video via AssemblyAI transcription with a custom chunker) $\rightarrow$ LangChain
+        text splitting $\rightarrow$ Gemini embeddings (768-dim, rate-limit-aware batching)
+        $\rightarrow$ pgvector similarity search on Supabase, with graceful degradation when
+        retrieval fails and a retrieval-quality eval harness.
+  \item Built provider-agnostic streaming chat on the Vercel AI SDK: a Gemini and Groq catalogue
+        with per-model capabilities, real-time markdown/code streaming, a retrieval-insights
+        panel exposing sources and similarity scores, and route-level rate limiting.
+\end{itemize}
+\projectgap
+
+\project{Fashion Marketplace}{Full-Stack E-Commerce}
+        {\iconlink{https://fashion-e-commerce-frontend-pi.vercel.app/en}{\faGlobe}{Live Demo}\hspace{0.9em}%
+         \iconlink{https://github.com/Shamsmedhat/fashion-e-commerce-frontend}{\faGithub}{Frontend}\hspace{0.9em}%
+         \iconlink{https://github.com/Shamsmedhat/fashion-e-commerce-backend}{\faGithub}{Backend}}
+        {Next.js 14, TypeScript, React Query, NextAuth, Node/Express, MongoDB}
+\begin{itemize}
+  \item Built a responsive bilingual (EN/AR, RTL) storefront with Next.js 14 App Router and
+        TypeScript, with a reusable component system using Tailwind CSS and shadcn/ui.
+  \item Implemented data fetching and mutations with React Query and server actions, and
+        authentication and protected routes with NextAuth.
+  \item Developed the REST backend with Express and MongoDB (products, cart, categories, users),
+        secured with JWT, bcrypt, and rate limiting, plus an image-upload pipeline
+        (Multer $\rightarrow$ Sharp $\rightarrow$ Cloudinary).
+  \item Deployed the frontend to Vercel and the backend to Railway.
+\end{itemize}
+
+%---------------------------- Courses -------------------------------------
+\section{Courses \& Certificates}
+\begin{itemize}
+  \item \textbf{Node.js, Express, MongoDB \& More: The Complete Bootcamp}, Udemy \hfill 2025
+  \item \textbf{CS50: Introduction to Computer Science}, Harvard \hfill 2025
+  \item \textbf{The Ultimate React Course: React, Next.js, Redux \& More}, Udemy \hfill 2024
+  \item \textbf{Frontend Development}, Route Academy \hfill 2023
+\end{itemize}
+
+%---------------------------- Education -----------------------------------
+\section{Education}
+\textbf{Bachelor of Laws (LL.B.)}, Cairo University \hfill \textbf{2019}
+
+%---------------------------- Languages -----------------------------------
+\section{Languages}
+\textbf{Arabic:} Native \hspace{0.6em}\textbar\hspace{0.6em} \textbf{English:} Professional working proficiency
+
+\end{document}
