@@ -37,7 +37,7 @@
 % Add any new tool names here.
 \hyphenation{AssemblyAI Firecrawl LangChain pgvector Supabase TypeScript NextAuth
              TanStack Mongoose MongoDB Cloudinary Vercel Railway shadcn Gemini Groq DevMentor
-             PostgreSQL NestJS Prisma Turborepo Vite}
+             Vite}
 
 %---------------------------- Section titles ------------------------------
 % BOLD UPPERCASE title + full-width rule underneath
@@ -99,7 +99,7 @@ moving into engineering.
   \item \textbf{Frontend:} Next.js (App Router, Server Components, SSR / SSG / ISR), React.js,
         TypeScript, React Query / TanStack Query, Redux Toolkit, Tailwind CSS, shadcn/ui, React Hook Form, Zod, NextAuth,
         next-intl / i18next (i18n, RTL), HTML5, CSS3, Responsive Design
-  \item \textbf{Backend:} Node.js, Express, MongoDB, Mongoose, PostgreSQL, REST API design,
+  \item \textbf{Backend:} Node.js, Express, MongoDB, Mongoose, REST API design,
         JWT authentication, bcrypt, rate limiting, SQL, Supabase
   \item \textbf{Architecture:} Requirements and scope definition, multi-tenant design,
         role-based access control and separation of duties, append-only and audit-log data
@@ -123,8 +123,7 @@ moving into engineering.
         37-category, 233-point rubric covering Next.js, TypeScript, shadcn/ui, React Hook Form,
         Zod, and NextAuth, standardising review depth and feedback quality across cohorts.
   \item Run technical screening interviews for junior frontend candidates, and design and
-        deliver technical sessions for junior developers on clean code and on AI/LLM
-        fundamentals for frontend engineers.
+        deliver technical sessions for junior developers on clean code.
 \end{itemize}
 
 \entry{The Lane Real Estate}{Jun 2024 -- Dec 2024}{Frontend Developer}
@@ -188,23 +187,17 @@ moving into engineering.
 \end{itemize}
 \projectgap
 
-\project{HR ERP Platform}{Multi-Tenant SaaS \textbar{} System design and specification
-         (design phase)}{}{}
+\project{HR ERP Platform}{Multi-Tenant HR SaaS \textbar{} System design and architecture
+         (in development)}{}{}
 \begin{itemize}
-  \item Wrote the full system specification for a multi-tenant HR platform covering the
-        post-hire employee lifecycle: roster publishing, attendance ingestion, requests and
-        approvals, adherence calculation, payroll run, and period close.
-  \item Chose database-per-tenant isolation with a central registry mapping each tenant to its
-        connection string and an automated migration runner across all tenant databases, with a
-        documented revisit point at around 15 tenants.
-  \item Defined the authorisation model across 9 human and 3 system actors, with separation of
-        duties (HR owns base salary, Payroll owns the payslip, neither writes the other's), a
-        no-self-approval rule, and an append-only audit log on anything touching money,
-        contracts, or permissions.
-  \item Set integrity and performance contracts per flow: append-only attendance with
-        corrections layered on top, immutable closed payroll periods with retro adjustments
-        carried into the next open period, idempotent file ingestion, and an atomic payroll run
-        with a defined latency budget.
+  \item Specified the system before implementation: the post-hire employee lifecycle from
+        roster and attendance through adherence, payroll run, and period close, with
+        database-per-tenant isolation, a central tenant registry, and an automated migration
+        runner across all tenant databases.
+  \item Defined the authorisation and integrity model across 9 human and 3 system actors:
+        separation of duties (HR owns base salary, Payroll owns the payslip), no self-approval,
+        append-only attendance and audit log, and immutable closed payroll periods with retro
+        adjustments carried forward.
 \end{itemize}
 
 %---------------------------- Courses -------------------------------------
