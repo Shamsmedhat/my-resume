@@ -36,7 +36,8 @@
 % Never split tech names across lines (keeps ATS keyword matching intact).
 % Add any new tool names here.
 \hyphenation{AssemblyAI Firecrawl LangChain pgvector Supabase TypeScript NextAuth
-             TanStack Mongoose MongoDB Cloudinary Vercel Railway shadcn Gemini Groq DevMentor}
+             TanStack Mongoose MongoDB Cloudinary Vercel Railway shadcn Gemini Groq DevMentor
+             PostgreSQL NestJS Prisma Turborepo Vite}
 
 %---------------------------- Section titles ------------------------------
 % BOLD UPPERCASE title + full-width rule underneath
@@ -71,7 +72,7 @@
 {\centering
   {\LARGE\bfseries Shams Medhat}\\[1.6pt]
   \textbf{Frontend Engineer} \textbar{} React, Next.js, TypeScript \textbar{}
-  Full-Stack (Node, Express, MongoDB) \textbar{} AI-Powered Products\\[1.6pt]
+  Full-Stack (Node, Express, MongoDB) \textbar{} AI Product Engineer (RAG / LLM)\\[1.6pt]
   \faPhone\ \href{tel:+201111803604}{+20 111 180 3604}\hspace{1em}
   \faMapMarker\ Giza, Egypt (open to hybrid \& remote)\hspace{1em}
   \faEnvelope\ \href{mailto:shamsmedhat1@gmail.com}{shamsmedhat1@gmail.com}\\[1.6pt]
@@ -86,7 +87,8 @@ Frontend engineer specialising in React, Next.js, and TypeScript, with full-stac
 across Node.js, Express, and MongoDB. Built and shipped
 \href{https://devmentor-ai-beta.vercel.app/en}{\textbf{DevMentor AI}}, an Arabic-first AI
 code-mentoring platform now in private beta with 41 developers signed up, and currently
-mentoring 80+ developers at \textbf{Elevate Tech} with 20--50 code reviews per week. Strong
+mentoring 80+ developers at \textbf{Elevate Tech} with 20--50 code reviews per week.
+Comfortable owning a system from requirements and architecture through to deployment. Strong
 communicator with a leadership track record, promoted through 4 roles in 4.5 years before
 moving into engineering.
 
@@ -94,11 +96,15 @@ moving into engineering.
 \section{Skills}
 {\small
 \begin{itemize}[itemsep=2.1pt]
-  \item \textbf{Frontend:} Next.js (App Router), React.js, TypeScript, React Query / TanStack Query,
-        Redux Toolkit, Tailwind CSS, shadcn/ui, React Hook Form, Zod, NextAuth,
+  \item \textbf{Frontend:} Next.js (App Router, Server Components, SSR / SSG / ISR), React.js,
+        TypeScript, React Query / TanStack Query, Redux Toolkit, Tailwind CSS, shadcn/ui, React Hook Form, Zod, NextAuth,
         next-intl / i18next (i18n, RTL), HTML5, CSS3, Responsive Design
-  \item \textbf{Backend:} Node.js, Express, MongoDB, Mongoose, REST API design, JWT authentication,
-        bcrypt, rate limiting, SQL, Supabase
+  \item \textbf{Backend:} Node.js, Express, MongoDB, Mongoose, PostgreSQL, REST API design,
+        JWT authentication, bcrypt, rate limiting, SQL, Supabase
+  \item \textbf{Architecture:} Requirements and scope definition, multi-tenant design,
+        role-based access control and separation of duties, append-only and audit-log data
+        models, background jobs (queue and worker), caching strategies, monorepo structure,
+        RAG pipeline design
   \item \textbf{AI / LLM:} LLM API integration (Vercel AI SDK), RAG (embeddings, pgvector similarity
         search, retrieval evals), prompt engineering, document and video ingestion pipelines,
         AI code-review workflows, AI-assisted development (Claude Code, Cursor)
@@ -110,19 +116,22 @@ moving into engineering.
 \section{Experience}
 \entry{Elevate Tech}{Feb 2025 -- Present}{Frontend Mentor $|$ Part-time}
 \begin{itemize}
-  \item Mentor 80+ junior developers across 4 cohorts (4--6 teams each) in React/Next.js,
-        conducting 20--50 code reviews per week, improving code quality, reducing bugs, and
-        boosting application performance.
-  \item Enforce clean-code standards, scalable component architecture, and consistent project
-        structure across multiple applications.
-  \item Lead daily standups, sprint planning, and task estimation in Jira, and unblock teams on
-        routing, authentication, forms, and data fetching so they ship production-ready features.
+  \item Mentor 80+ junior developers across 4 cohorts (4 to 6 teams each) in React/Next.js,
+        conducting 20 to 50 code reviews per week and enforcing clean-code standards and
+        scalable component architecture across multiple applications.
+  \item Built an automated code-review and grading toolkit (Claude Code skill bundle) with a
+        37-category, 233-point rubric covering Next.js, TypeScript, shadcn/ui, React Hook Form,
+        Zod, and NextAuth, standardising review depth and feedback quality across cohorts.
+  \item Run technical screening interviews for junior frontend candidates, and design and
+        deliver technical sessions for junior developers on clean code and on AI/LLM
+        fundamentals for frontend engineers.
 \end{itemize}
 
 \entry{The Lane Real Estate}{Jun 2024 -- Dec 2024}{Frontend Developer}
 \begin{itemize}
-  \item Rebuilt SEO infrastructure across 5 key pages (dynamic sitemaps and page-specific
-        metadata), improving crawlability, search visibility, and measurable organic-traffic growth.
+  \item Took key pages from effectively unindexed to an average Google position of around 35
+        by adding dynamic sitemaps, a robots.txt, and per-page metadata, resolving the
+        crawlability gaps that had kept the site out of search results.
   \item Maintained and enhanced the internal admin panel, fixing UI/UX issues and streamlining
         daily workflows for real estate agents.
   \item Owned deployments and shipped iterative, A/B-style improvements to performance and user
@@ -158,20 +167,45 @@ moving into engineering.
 \end{itemize}
 \projectgap
 
-\project{Fashion Marketplace}{Full-Stack E-Commerce}
+\project{Fashion Marketplace}{Full-Stack E-Commerce \textbar{} 3 Repos}
         {\iconlink{https://fashion-e-commerce-frontend-pi.vercel.app/en}{\faGlobe}{Live Demo}\hspace{0.9em}%
          \iconlink{https://github.com/Shamsmedhat/fashion-e-commerce-frontend}{\faGithub}{Frontend}\hspace{0.9em}%
          \iconlink{https://github.com/Shamsmedhat/fashion-e-commerce-backend}{\faGithub}{Backend}}
-        {Next.js 14, TypeScript, React Query, NextAuth, Node/Express, MongoDB}
+        {Next.js 14, React 19, Vite, TypeScript, React Query, NextAuth, Node/Express,
+         MongoDB}
 \begin{itemize}
   \item Built a responsive bilingual (EN/AR, RTL) storefront with Next.js 14 App Router and
         TypeScript, with a reusable component system using Tailwind CSS and shadcn/ui.
   \item Implemented data fetching and mutations with React Query and server actions, and
         authentication and protected routes with NextAuth.
+  \item Built a standalone admin dashboard (React 19, Vite, TypeScript, shadcn/ui) with a
+        feature-based architecture and services layer, consuming the same REST API to manage
+        catalog, categories, and inventory.
   \item Developed the REST backend with Express and MongoDB (products, cart, categories, users),
         secured with JWT, bcrypt, and rate limiting, plus an image-upload pipeline
-        (Multer $\rightarrow$ Sharp $\rightarrow$ Cloudinary).
-  \item Deployed the frontend to Vercel and the backend to Railway.
+        (Multer $\rightarrow$ Sharp $\rightarrow$ Cloudinary). Deployed the frontend to Vercel
+        and the backend to Railway.
+\end{itemize}
+\projectgap
+
+\project{HR ERP Platform}{Multi-Tenant SaaS \textbar{} System design and specification
+         (design phase)}{}
+        {PostgreSQL, NestJS, Prisma, Turborepo, Next.js App Router, queue and worker}
+\begin{itemize}
+  \item Wrote the full system specification for a multi-tenant HR platform covering the
+        post-hire employee lifecycle: roster publishing, attendance ingestion, requests and
+        approvals, adherence calculation, payroll run, and period close.
+  \item Chose database-per-tenant isolation with a central registry mapping each tenant to its
+        connection string and an automated migration runner across all tenant databases, with a
+        documented revisit point at around 15 tenants.
+  \item Defined the authorisation model across 9 human and 3 system actors, with separation of
+        duties (HR owns base salary, Payroll owns the payslip, neither writes the other's), a
+        no-self-approval rule, and an append-only audit log on anything touching money,
+        contracts, or permissions.
+  \item Set integrity and performance contracts per flow: append-only attendance with
+        corrections layered on top, immutable closed payroll periods with retro adjustments
+        carried into the next open period, idempotent file ingestion, and an atomic payroll run
+        with a defined latency budget.
 \end{itemize}
 
 %---------------------------- Courses -------------------------------------
