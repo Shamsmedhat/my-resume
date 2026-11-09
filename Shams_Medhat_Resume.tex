@@ -1,16 +1,15 @@
 %==========================================================================
-%  Shams Medhat — Resume (LaTeX)
-%  Compiler: pdfLaTeX  (Overleaf default)  — XeLaTeX / LuaLaTeX also work
-%  Layout matches the reference CV: Latin Modern 11pt, 0.3in margins,
-%  bold uppercase section titles with a full-width rule, FontAwesome icons.
+%  Shams Medhat - Resume (LaTeX, pdfLaTeX)
+%  Latin Modern 10pt, 0.5in side margins, bold uppercase section titles
+%  with a full-width rule. One page.
 %==========================================================================
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 
 %---------------------------- Page & fonts --------------------------------
-\usepackage[a4paper, margin=0.3in]{geometry}  % change a4paper -> letterpaper for US roles
-\usepackage{lmodern}                          % Latin Modern (same font as the reference)
-\usepackage{fontawesome5}                     % icons: \faPhone, \faGithub, ...
-\usepackage{microtype}                        % nicer justification (fewer stretched lines)
+\usepackage[a4paper, left=0.5in, right=0.5in, top=0.32in, bottom=0.3in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{iftex}
@@ -21,7 +20,7 @@
   pdfpagemode = UseNone
 }
 
-% Make the PDF text machine-readable (ATS parsers, copy/paste)
+% Machine-readable PDF text (ATS parsers, copy/paste)
 \ifPDFTeX
   \input{glyphtounicode}
   \pdfgentounicode=1
@@ -31,196 +30,165 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 \setcounter{secnumdepth}{0}
-\frenchspacing   % even word spacing after "." and ":"
+\frenchspacing
 
-% Never split tech names across lines (keeps ATS keyword matching intact).
-% Add any new tool names here.
+% Never split tech names across lines (keeps ATS keyword matching intact)
 \hyphenation{AssemblyAI Firecrawl LangChain pgvector Supabase TypeScript NextAuth
-             TanStack Mongoose MongoDB Cloudinary Vercel Railway shadcn Gemini Groq DevMentor
-             Vite Lighthouse WebPageTest DevTools}
+             TanStack Mongoose MongoDB Cloudinary Vercel shadcn Gemini Groq DevMentor
+             Vite Lighthouse PostgreSQL NestJS Prisma Playwright Supertest Zustand}
 
 %---------------------------- Section titles ------------------------------
-% BOLD UPPERCASE title + full-width rule underneath
-\titleformat{\section}{\bfseries}{}{0pt}{\MakeUppercase}[\titlerule]
-\titlespacing*{\section}{0pt}{10pt}{10.5pt}
+\titleformat{\section}{\large\bfseries}{}{0pt}{\MakeUppercase}[\vspace{-3pt}\titlerule]
+\titlespacing*{\section}{0pt}{5.5pt}{3pt}
 
 %---------------------------- Lists ---------------------------------------
-\setlist[itemize]{label=\textbullet, leftmargin=16.4pt, labelsep=5.5pt,
-                  topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=1.6pt}
+\setlist[itemize]{label=\textbullet, leftmargin=12.7pt, labelsep=5pt,
+                  topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0.6pt}
 
 %---------------------------- Macros --------------------------------------
-% \entry{Company}{Dates}{Role | Type}
+% \entry{Company}{Role}{Dates}
 \newcommand{\entry}[3]{%
-  \par\noindent\textbf{#1}\hfill\textbf{#2}\par\nopagebreak
-  \noindent\textit{#3}\par\nopagebreak}
+  \par\vspace{2.5pt}\noindent\textbf{#1} \textbar{} \textit{#2}\hfill\textbf{#3}\par\nopagebreak}
 
 % \project{Name}{One-line description}{Links (right side)}{Tech stack}
 \newcommand{\project}[4]{%
-  \par\noindent\textbf{#1 \textbar}\ #2\hfill#3\par\nopagebreak
-  \noindent\textit{#4}\par\nopagebreak}
+  \par\vspace{2.5pt}\noindent\textbf{#1} \textbar{} #2\hfill#3\par\nopagebreak
+  \noindent{\small\itshape #4}\par\nopagebreak}
 
-% \iconlink{url}{icon}{label}  ->  icon + bold label, clickable
-\newcommand{\iconlink}[3]{\href{#1}{#2\ \textbf{#3}}}
+% \note{text}: small italic line under an entry
+\newcommand{\note}[1]{\noindent{\small\itshape #1}\par\nopagebreak}
 
-% space between two projects (as in the reference)
-\newcommand{\projectgap}{\vspace{6.5pt}}
+\newcommand{\bl}[2]{\href{#1}{\textbf{#2}}}   % bold link
+\newcommand{\sep}{\ \textbar\ }
 
 %==========================================================================
 \begin{document}
 
 %---------------------------- Header --------------------------------------
 {\centering
-  {\LARGE\bfseries Shams Medhat}\\[1.6pt]
-  \textbf{Frontend Engineer} \textbar{} React, Next.js, TypeScript \textbar{}
-  Full-Stack (Node, Express, MongoDB) \textbar{} AI Product Engineer (RAG / LLM)\\[1.6pt]
-  \faPhone\ \href{tel:+201111803604}{+20 111 180 3604}\hspace{1em}
-  \faMapMarker\ Giza, Egypt (open to hybrid \& remote)\hspace{1em}
-  \faEnvelope\ \href{mailto:shamsmedhat1@gmail.com}{shamsmedhat1@gmail.com}\\[1.6pt]
+  {\LARGE\bfseries Shams Medhat}\\[2pt]
+  \textbf{Software Engineer} \textbar{} AI / LLM Systems (RAG, Evals) \textbar{}
+  Full-Stack (React, Next.js, TypeScript, Node.js)\\[1pt]
   {\small
-  \faLinkedin\ \href{https://www.linkedin.com/in/shamsmedhat/}{linkedin.com/in/shamsmedhat}\hspace{1em}
-  \faGithub\ \href{https://github.com/Shamsmedhat}{github.com/Shamsmedhat}\hspace{1em}
-  \faGlobe\ \href{https://devmentor-ai-beta.vercel.app/en}{devmentor-ai-beta.vercel.app}}\par}
+  Giza, Egypt (hybrid or remote)\sep
+  \href{tel:+201111803604}{+20 111 180 3604}\sep
+  \href{mailto:shamsmedhat1@gmail.com}{shamsmedhat1@gmail.com}\\
+  \href{https://www.linkedin.com/in/shamsmedhat/}{linkedin.com/in/shamsmedhat}\sep
+  \href{https://github.com/Shamsmedhat}{github.com/Shamsmedhat}\sep
+  \href{https://devmentor-ai-beta.vercel.app/en}{devmentor-ai-beta.vercel.app}}\par}
 
 %---------------------------- Summary -------------------------------------
 \section{Summary}
-Frontend engineer specialising in React, Next.js, and TypeScript, with full-stack delivery
-across Node.js, Express, and MongoDB. Built and shipped
-\href{https://devmentor-ai-beta.vercel.app/en}{\textbf{DevMentor AI}}, an Arabic-first AI
-code-mentoring platform now in private beta with 41 developers signed up, and currently
-mentoring 80+ developers at \textbf{Elevate Tech} with 20 to 50 code reviews per week.
-Comfortable owning a system from requirements and architecture through to deployment. Strong
-communicator with a leadership track record, promoted through 4 roles in 4.5 years before
-moving into engineering.
+Software engineer building AI and full-stack products with React, Next.js, TypeScript, and
+Node.js. Currently building a production AI system for a food-testing lab over 12,000+ pages
+of mostly Arabic regulations. Shipped \textbf{DevMentor AI}, an Arabic-first RAG app with 41
+developers in private beta. Mentor 80+ developers at \textbf{Elevate Tech}.
 
 %---------------------------- Skills --------------------------------------
 \section{Skills}
-{\small
-\begin{itemize}[itemsep=2.1pt]
-  \item \textbf{Frontend:} Next.js (App Router, Server Components, SSR / SSG / ISR), React.js,
-        TypeScript, React Query / TanStack Query, Redux Toolkit, Tailwind CSS, shadcn/ui, React Hook Form, Zod, NextAuth,
-        next-intl / i18next (i18n, RTL), HTML5, CSS3, Responsive Design
-  \item \textbf{Web Performance:} Core Web Vitals (LCP, CLS, INP), TTFB and FCP optimisation,
-        Lighthouse, Chrome DevTools, WebPageTest, real user monitoring (Performance API),
-        image optimisation, lazy loading, HTTP caching and compression
-  \item \textbf{Backend:} Node.js, Express, MongoDB, Mongoose, REST API design,
-        JWT authentication, bcrypt, rate limiting, SQL, Supabase
-  \item \textbf{Architecture:} Requirements and scope definition, multi-tenant design,
-        role-based access control and separation of duties, append-only and audit-log data
-        models, background jobs (queue and worker), caching strategies, monorepo structure,
-        RAG pipeline design
-  \item \textbf{AI / LLM:} LLM API integration (Vercel AI SDK), RAG (embeddings, pgvector similarity
-        search, retrieval evals), prompt engineering, document and video ingestion pipelines,
-        AI code-review workflows, AI-assisted development (Claude Code, Cursor)
-  \item \textbf{Tools \& Practices:} Git, GitHub, Jira, Agile/Scrum, Vercel, Railway, Cloudinary,
-        Stripe, Data Structures \& Algorithms
-\end{itemize}}
+\begin{itemize}
+  \item \textbf{AI / LLM:} RAG (chunking, embeddings, pgvector similarity search, retrieval
+        evals), Vercel AI SDK, LangChain, Gemini, Groq, prompt engineering, ingestion pipelines
+        (web, PDF, video), speech-to-text (AssemblyAI), Arabic document processing (PDF
+        transcription, structured extraction, term normalization), Claude Code, Cursor
+  \item \textbf{Frontend:} Next.js (App Router, Server Components, Server Actions, SSR / ISR,
+        revalidation), React, TypeScript, JavaScript (ES6+), TanStack Query, TanStack Router,
+        Redux Toolkit, Zustand, React Hook Form, Zod, NextAuth, Tailwind CSS, shadcn/ui,
+        next-intl / i18next (RTL), HTML5, CSS3, Core Web Vitals, Lighthouse
+  \item \textbf{Backend:} Node.js, Express, PostgreSQL, MongoDB, REST APIs, JWT, rate limiting,
+        Stripe, Cloudinary, Supabase
+  \item \textbf{Testing \& Tools:} Vitest, React Testing Library, Playwright, Supertest,
+        GitHub Actions, Git, Jira, Agile, Vercel
+\end{itemize}
 
 %---------------------------- Experience ----------------------------------
 \section{Experience}
-\entry{Elevate Tech}{Feb 2025 - Present}{Frontend Mentor $|$ Part-time}
+\entry{Healthy Premium Labs}{AI Engineer (Freelance)}{Sep 2026 - Present}
+\note{Production AI assistant for a food-testing lab: test quotes and result review against
+      Egyptian food-safety limits (in progress).}
 \begin{itemize}
-  \item Mentor 80+ junior developers across 4 cohorts (4 to 6 teams each) in React/Next.js,
-        conducting 20 to 50 code reviews per week and enforcing clean-code standards and
-        scalable component architecture across multiple applications.
+  \item Turning the lab's library of 1,057 regulations and standards, mostly Arabic (12,000+ pages,
+        42 food industries), into a searchable knowledge base: about 30\% converted with
+        automated QA so far, yielding 4,000+ classified chunks.
+  \item Extracted all 696 microbiological limits from Egypt's food-safety authority decision
+        (NFSA 1/2021) into validated tables, and mapped 189 Arabic and English test names to
+        112 lab tests, so every limit links to a test and the price list.
+  \item Encoded the lab's pass/fail rules for 2- and 3-class sampling plans with the lab
+        director, logging each data decision with a matching eval case. Caught a parser error
+        that would have passed Salmonella-positive juice as compliant.
+  \item Next: Egyptian Standard limits, then the assistant itself, where limits and prices
+        come from validated data (never generated), every answer cites its reference and
+        source, and changes ship only after evals pass.
+\end{itemize}
+
+\entry{Elevate Tech}{Frontend Mentor (Part-time)}{Feb 2025 - Present}
+\begin{itemize}
+  \item Mentor 80+ junior developers across 4 cohorts (4 to 6 teams each) in React and Next.js,
+        running 20 to 50 code reviews a week plus daily standups, sprint planning, and task
+        estimation in Jira.
   \item Built an automated code-review and grading toolkit (Claude Code skill bundle) with a
-        37-category, 233-point rubric covering Next.js, TypeScript, shadcn/ui, React Hook Form,
-        Zod, and NextAuth, standardising review depth and feedback quality across cohorts.
-  \item Run technical screening interviews for junior frontend candidates, and design and
-        deliver technical sessions for junior developers on clean code.
+        37-category, 233-point rubric for Next.js, TypeScript, React Hook Form, Zod, and
+        NextAuth, standardizing review depth across cohorts.
+  \item Run technical screening interviews for junior frontend candidates and deliver
+        clean-code sessions to bootcamp teams.
 \end{itemize}
 
-\entry{The Lane Real Estate}{Jun 2024 - Dec 2024}{Frontend Developer}
+\entry{The Lane Real Estate}{Frontend Developer}{Jun 2024 - Dec 2024}
 \begin{itemize}
-  \item Took key pages from effectively unindexed to an average Google position of around 35
-        by adding dynamic sitemaps, a robots.txt, and per-page metadata, resolving the
-        crawlability gaps that had kept the site out of search results.
-  \item Maintained and enhanced the internal admin panel, fixing UI/UX issues and streamlining
-        daily workflows for real estate agents.
-  \item Owned deployments and shipped iterative, A/B-style improvements to performance and user
-        experience.
+  \item Took key pages from effectively unindexed to an average Google position of about 35
+        (dynamic sitemaps, robots.txt, per-page metadata); maintained the agents' admin panel
+        and owned production deployments.
 \end{itemize}
 
-\entry{Xceed}{Jan 2020 - Jun 2024}{CSR $\rightarrow$ Mentor $\rightarrow$ Trainer $\rightarrow$
-       Technical Lead (Soft Skills \& Product)}
+\entry{Xceed}{CSR $\rightarrow$ Mentor $\rightarrow$ Trainer $\rightarrow$ Technical Lead}{Jan 2020 - Jun 2024}
 \begin{itemize}
-  \item Promoted through 4 roles in 4.5 years, designing and delivering training programs for
-        150+ agents, raising team QA scores to the top quartile and earning an `A' performance
-        rating.
+  \item Promoted through 4 roles in 4.5 years; trained 150+ agents, raising team QA scores to
+        the top quartile.
 \end{itemize}
 
 %---------------------------- Projects ------------------------------------
 \section{Projects}
-\project{DevMentor AI}{AI Code-Mentoring Platform}
-        {\iconlink{https://devmentor-ai-beta.vercel.app/en}{\faGlobe}{Live Demo}\hspace{0.9em}%
-         \iconlink{https://github.com/Shamsmedhat/devmentor-ai}{\faGithub}{Full-stack Next.js}}
+\project{DevMentor AI}{Arabic-first AI mentoring app}
+        {\bl{https://devmentor-ai-beta.vercel.app/en}{Live}\sep
+         \bl{https://github.com/Shamsmedhat/devmentor-ai}{Code}}
         {Next.js 16, React 19, TypeScript, Vercel AI SDK, Supabase (pgvector), LangChain, Tailwind v4}
 \begin{itemize}
-  \item Built and shipped an Arabic-first AI mentor for React/Next.js developers: chat grounded
-        in user-uploaded documentation, automated code review, a bilingual AR/EN interface with
-        RTL, and persistent sessions. 41 developers signed up for the private beta.
-  \item Engineered the full RAG pipeline: multi-format ingestion (web pages via Firecrawl, PDFs,
-        and video via AssemblyAI transcription with a custom chunker) $\rightarrow$ LangChain
-        text splitting $\rightarrow$ Gemini embeddings (768-dim, rate-limit-aware batching)
-        $\rightarrow$ pgvector similarity search on Supabase, with graceful degradation when
-        retrieval fails and a retrieval-quality eval harness.
-  \item Built provider-agnostic streaming chat on the Vercel AI SDK: a Gemini and Groq catalogue
-        with per-model capabilities, real-time markdown/code streaming, a retrieval-insights
-        panel exposing sources and similarity scores, and route-level rate limiting.
+  \item Shipped a bilingual (AR / EN, RTL) AI mentor for React and Next.js developers:
+        streaming chat grounded in a curated knowledge base, with persistent sessions.
+        41 developers joined the private beta.
+  \item Built the RAG pipeline end to end: ingestion from web (Firecrawl), PDFs, and video
+        (AssemblyAI transcripts, custom chunker), 768-dim Gemini embeddings, and pgvector
+        search, falling back to the base prompt when retrieval fails.
+  \item Added scripted retrieval evals and integrity checks, a Gemini and Groq provider catalog
+        with per-model capabilities and no silent fallback, a sources and similarity-score
+        panel, and route-level rate limiting.
 \end{itemize}
-\projectgap
 
-\project{Fashion Marketplace}{Full-Stack E-Commerce \textbar{} 3 Repos}
-        {\iconlink{https://fashion-e-commerce-frontend-pi.vercel.app/en}{\faGlobe}{Live Demo}\hspace{0.9em}%
-         \iconlink{https://github.com/Shamsmedhat/fashion-e-commerce-frontend}{\faGithub}{Frontend}\hspace{0.9em}%
-         \iconlink{https://github.com/Shamsmedhat/fashion-e-commerce-backend}{\faGithub}{Backend}}
-        {Next.js 14, React 19, Vite, TypeScript, React Query, NextAuth, Node/Express,
-         MongoDB}
+\project{Fashion Marketplace}{Full-stack e-commerce across 3 repos}
+        {\bl{https://fashion-e-commerce-frontend-pi.vercel.app/en}{Store}\sep
+         \bl{https://fashion-ecommerce-dashboard.vercel.app/}{Admin}\sep Code:
+         \bl{https://github.com/Shamsmedhat/fashion-e-commerce-frontend}{web},
+         \bl{https://github.com/Shamsmedhat/fashion-ecommerce-dashboard}{admin},
+         \bl{https://github.com/Shamsmedhat/fashion-e-commerce-backend}{API}}
+        {Next.js 14, React 19, Vite, TypeScript, TanStack Query, NextAuth, Node.js, Express, MongoDB, Stripe}
 \begin{itemize}
-  \item Built a responsive bilingual (EN/AR, RTL) storefront with Next.js 14 App Router and
-        TypeScript, with a reusable component system using Tailwind CSS and shadcn/ui.
-  \item Implemented data fetching and mutations with React Query and server actions, and
-        authentication and protected routes with NextAuth.
-  \item Built a standalone admin dashboard (React 19, Vite, TypeScript, shadcn/ui) with a
-        feature-based architecture and services layer, consuming the same REST API to manage
-        catalog, categories, and inventory.
-        \mbox{\iconlink{https://fashion-ecommerce-dashboard.vercel.app/}{\faGlobe}{Live Demo}\hspace{0.9em}%
-        \iconlink{https://github.com/Shamsmedhat/fashion-ecommerce-dashboard}{\faGithub}{Repo}}
-  \item Developed the REST backend with Express and MongoDB (products, cart, categories, users),
-        secured with JWT, bcrypt, and rate limiting, plus an image-upload pipeline
-        (Multer $\rightarrow$ Sharp $\rightarrow$ Cloudinary). Deployed the frontend to Vercel
-        and the backend to Railway.
-\end{itemize}
-\projectgap
-
-\project{HR ERP Platform}{Multi-Tenant HR SaaS \textbar{} System design and architecture
-         (in development)}{}{}
-\begin{itemize}
-  \item Specified the system before implementation: the post-hire employee lifecycle from
-        roster and attendance through adherence, payroll run, and period close, with
-        database-per-tenant isolation, a central tenant registry, and an automated migration
-        runner across all tenant databases.
-  \item Defined the authorisation and integrity model across 9 human and 3 system actors:
-        separation of duties (HR owns base salary, Payroll owns the payslip), no self-approval,
-        append-only attendance and audit log, and immutable closed payroll periods with retro
-        adjustments carried forward.
+  \item \textbf{Web:} bilingual Next.js store with server-rendered catalog pages revalidated on
+        demand when the admin saves; React 19 and Vite admin (TanStack Router and Query,
+        Zustand) with signed Cloudinary uploads.
+  \item \textbf{API:} Express and MongoDB REST backend with JWT, bcrypt, per-account rate
+        limiting, Stripe checkout with webhooks, and stock updated on order; deployed as Vercel
+        serverless functions.
+  \item \textbf{Quality:} 180+ automated tests across the 3 repos (Vitest, React Testing Library,
+        Supertest on in-memory MongoDB, Playwright end-to-end flows), gated in GitHub Actions on
+        lint, typecheck, and tests.
 \end{itemize}
 
-%---------------------------- Courses -------------------------------------
-\section{Courses \& Certificates}
-\begin{itemize}
-  \item \textbf{Web Performance Fundamentals, v2}, Master.dev \hfill 2026
-  \item \textbf{Node.js, Express, MongoDB \& More: The Complete Bootcamp}, Udemy \hfill 2025
-  \item \textbf{CS50: Introduction to Computer Science}, Harvard \hfill 2025
-  \item \textbf{The Ultimate React Course: React, Next.js, Redux \& More}, Udemy \hfill 2024
-  \item \textbf{Frontend Development}, Route Academy \hfill 2023
-\end{itemize}
-
-%---------------------------- Education -----------------------------------
-\section{Education}
-\textbf{Bachelor of Laws (LL.B.)}, Cairo University \hfill \textbf{2019}
-
-%---------------------------- Languages -----------------------------------
-\section{Languages}
-\textbf{Arabic:} Native \hspace{0.6em}\textbar\hspace{0.6em} \textbf{English:} Professional working proficiency
+%---------------------------- Education & Courses -------------------------
+\section{Education \& Courses}
+\textbf{Bachelor of Laws (LL.B.)}, Cairo University \hfill 2019\\
+\textbf{Courses:} Web Performance Fundamentals v2, Frontend Masters (2026); Node.js, Express \&
+MongoDB Bootcamp, Udemy (2025); CS50, Harvard (2025); The Ultimate React Course, Udemy (2024);
+Frontend Development, Route Academy (2023)\\
+\textbf{Languages:} Arabic (native), English (professional working proficiency)
 
 \end{document}
